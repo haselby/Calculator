@@ -53,7 +53,7 @@ class CalculatorBrain
         knownOps["TAN"] = Op.unaryOperation("TAN",tan)
         knownOps["√"] = Op.unaryOperation("√",sqrt)
         knownOps["+/-"] = Op.unaryOperation("+/-",{$0 * (-1)})
-        knownOps["π"] = Op.nullaryOperation("π",M_PI)
+        knownOps["π"] = Op.nullaryOperation("π",Double.pi)
     }
     
     fileprivate func evaluate(_ ops: [Op]) -> (result: Double?, remainingOps: [Op])
@@ -88,7 +88,7 @@ class CalculatorBrain
     
     func evaluate() -> Double? {
         let (result, remainder) = evaluate(opStack)
-        print("\(opStack) = \(result) with \(remainder) left over")
+        print("\(opStack) = \(String(describing: result)) with \(remainder) left over")
         return result
     }
     
